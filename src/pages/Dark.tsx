@@ -163,9 +163,16 @@ export default function Dark() {
               Заказать
             </button>
           </div>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden">
-            <Icon name={menuOpen ? "X" : "Menu"} size={24} className="text-white" />
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <button onClick={() => navigate("/")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#C9A227]/40 text-[#C9A227] text-xs font-medium transition-all">
+              <Icon name="Sun" size={13} />
+              Светлая
+            </button>
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              <Icon name={menuOpen ? "X" : "Menu"} size={24} className="text-white" />
+            </button>
+          </div>
         </div>
         {menuOpen && (
           <div className="lg:hidden bg-black/95 border-t border-[#C9A227]/20 px-4 pb-4 pt-2">

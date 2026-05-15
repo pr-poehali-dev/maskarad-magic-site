@@ -102,9 +102,16 @@ export default function Index() {
               Заказать костюм
             </button>
           </div>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-foreground">
-            <Icon name={menuOpen ? "X" : "Menu"} size={24} />
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <button onClick={() => navigate("/dark")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-foreground/20 text-foreground/60 text-xs font-medium transition-all bg-white/60">
+              <Icon name="Moon" size={13} />
+              Тёмная
+            </button>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="text-foreground">
+              <Icon name={menuOpen ? "X" : "Menu"} size={24} />
+            </button>
+          </div>
         </div>
         {menuOpen && (
           <div className="lg:hidden bg-white/95 backdrop-blur border-t border-border px-4 pb-4 pt-2">
