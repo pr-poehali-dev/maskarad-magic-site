@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/e01f95c6-fc8f-4d8d-8bca-5cf55eb0792e/files/2b656d8c-ca58-4c9a-b99f-79037be0c17f.jpg";
@@ -48,6 +49,7 @@ const navLinks = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -88,10 +90,18 @@ export default function Index() {
               </button>
             ))}
           </nav>
-          <button onClick={() => scrollTo("#contacts")}
-            className="hidden lg:block btn-primary px-5 py-2 rounded-full text-sm font-medium">
-            Заказать костюм
-          </button>
+          <div className="hidden lg:flex items-center gap-3">
+            <button onClick={() => navigate("/dark")}
+              title="Тёмная версия"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/20 text-foreground/60 hover:border-foreground/40 hover:text-foreground text-sm font-medium transition-all duration-200 bg-white/60 backdrop-blur-sm">
+              <Icon name="Moon" size={15} />
+              <span>Тёмная</span>
+            </button>
+            <button onClick={() => scrollTo("#contacts")}
+              className="btn-primary px-5 py-2 rounded-full text-sm font-medium">
+              Заказать костюм
+            </button>
+          </div>
           <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-foreground">
             <Icon name={menuOpen ? "X" : "Menu"} size={24} />
           </button>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const IMG_HERO    = "https://cdn.poehali.dev/projects/e01f95c6-fc8f-4d8d-8bca-5cf55eb0792e/files/3d20efc7-3449-4b64-9e9d-ae89e7efa6fc.jpg";
@@ -103,6 +104,7 @@ const navLinks = [
 ];
 
 export default function Dark() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [reviewIdx, setReviewIdx] = useState(0);
@@ -149,8 +151,13 @@ export default function Dark() {
               </button>
             ))}
           </nav>
-          <div className="hidden lg:flex items-center gap-4">
-            <span className="text-sm text-white/70">+7 (xxx) xxx-xx-xx</span>
+          <div className="hidden lg:flex items-center gap-3">
+            <button onClick={() => navigate("/")}
+              title="Светлая версия"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A227]/40 text-[#C9A227]/70 hover:border-[#C9A227] hover:text-[#C9A227] text-sm font-medium transition-all duration-200">
+              <Icon name="Sun" size={15} />
+              <span>Светлая</span>
+            </button>
             <button onClick={() => scrollTo("#contacts")}
               className="px-5 py-2 rounded-full text-sm font-semibold border border-[#C9A227] text-[#C9A227] hover:bg-[#C9A227] hover:text-black transition-all duration-200">
               Заказать
