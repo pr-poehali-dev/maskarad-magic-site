@@ -4,43 +4,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 340 20% 15%;
+    /* Берёзовая белизна и льняные тона */
+    --background: 45 30% 98%;
+    --foreground: 30 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 340 20% 15%;
+    --card: 45 25% 99%;
+    --card-foreground: 30 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 340 20% 15%;
+    --popover: 45 25% 99%;
+    --popover-foreground: 30 25% 15%;
 
-    --primary: 350 80% 48%;
-    --primary-foreground: 0 0% 100%;
+    /* Основной — земля, глина */
+    --primary: 20 45% 35%;
+    --primary-foreground: 45 30% 98%;
 
-    --secondary: 45 100% 95%;
-    --secondary-foreground: 340 20% 15%;
+    --secondary: 90 20% 92%;
+    --secondary-foreground: 30 25% 15%;
 
-    --muted: 40 30% 96%;
-    --muted-foreground: 340 10% 50%;
+    --muted: 45 20% 93%;
+    --muted-foreground: 30 15% 50%;
 
-    --accent: 43 95% 55%;
-    --accent-foreground: 340 20% 15%;
+    /* Акцент — ягода, алая нить */
+    --accent: 355 60% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 350 30% 88%;
-    --input: 350 30% 88%;
-    --ring: 350 80% 48%;
+    --border: 40 20% 84%;
+    --input: 40 20% 84%;
+    --ring: 20 45% 35%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Brand colors */
-    --gold: 43 95% 52%;
-    --rose: 350 80% 48%;
-    --cream: 45 100% 97%;
-    --warm-bg: 45 80% 96%;
-    --terracotta: 10 75% 50%;
-    --scarlet: 350 80% 48%;
+    /* Природная палитра */
+    --birch: 45 30% 98%;
+    --linen: 38 35% 91%;
+    --earth: 20 45% 35%;
+    --bark: 25 30% 28%;
+    --moss: 100 25% 40%;
+    --berry: 355 60% 45%;
+    --straw: 43 60% 65%;
+    --gold: 43 60% 52%;
+    --rose: 355 60% 45%;
+    --cream: 45 30% 98%;
+    --warm-bg: 40 25% 94%;
+    --terracotta: 20 45% 35%;
   }
 }
 
@@ -62,59 +71,70 @@
   }
 }
 
-/* Ornament pattern background */
-.ornament-bg {
-  background-color: hsl(var(--cream));
+/* Берёзовый фон */
+.birch-bg {
+  background-color: hsl(var(--birch));
   background-image:
     radial-gradient(
-      circle at 15% 25%,
-      hsla(350, 80%, 70%, 0.12) 0%,
-      transparent 45%
+      ellipse at 10% 10%,
+      hsla(100, 30%, 85%, 0.18) 0%,
+      transparent 50%
     ),
     radial-gradient(
-      circle at 85% 75%,
-      hsla(43, 95%, 70%, 0.15) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 60% 10%,
-      hsla(120, 60%, 70%, 0.08) 0%,
-      transparent 35%
+      ellipse at 90% 90%,
+      hsla(43, 60%, 88%, 0.2) 0%,
+      transparent 50%
     );
 }
 
+.ornament-bg {
+  background-color: hsl(var(--birch));
+  background-image:
+    radial-gradient(
+      ellipse at 15% 20%,
+      hsla(100, 30%, 85%, 0.15) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      hsla(43, 60%, 85%, 0.18) 0%,
+      transparent 45%
+    );
+}
+
+/* Героический паттерн */
 .hero-pattern {
-  background-color: hsl(45 80% 97%);
+  background-color: hsl(45, 30%, 98%);
   background-image:
     radial-gradient(
       ellipse at top left,
-      hsla(350, 80%, 80%, 0.25) 0%,
-      transparent 50%
+      hsla(100, 30%, 85%, 0.22) 0%,
+      transparent 55%
     ),
     radial-gradient(
       ellipse at bottom right,
-      hsla(43, 95%, 80%, 0.3) 0%,
-      transparent 50%
+      hsla(43, 60%, 88%, 0.25) 0%,
+      transparent 55%
     ),
     radial-gradient(
       ellipse at top right,
-      hsla(120, 60%, 80%, 0.1) 0%,
+      hsla(355, 60%, 92%, 0.08) 0%,
       transparent 40%
-    );
+    ),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a07840' fill-opacity='0.03'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Animations */
+/* Анимации */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -123,7 +143,6 @@
     opacity: 1;
   }
 }
-
 @keyframes shimmer {
   0% {
     background-position: -200% center;
@@ -132,17 +151,15 @@
     background-position: 200% center;
   }
 }
-
 @keyframes float {
   0%,
   100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
 }
-
 @keyframes scaleIn {
   from {
     opacity: 0;
@@ -153,21 +170,30 @@
     transform: scale(1);
   }
 }
+@keyframes leafSway {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateX(0px);
+  }
+  50% {
+    transform: rotate(2deg) translateX(3px);
+  }
+}
 
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out forwards;
 }
-
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
-
 .animate-scale-in {
   animation: scaleIn 0.6s ease-out forwards;
 }
-
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+}
+.animate-sway {
+  animation: leafSway 7s ease-in-out infinite;
 }
 
 .delay-100 {
@@ -189,55 +215,68 @@
   animation-delay: 0.6s;
 }
 
+/* Золото — солома */
 .gold-text {
   background: linear-gradient(
     135deg,
-    hsl(43, 95%, 40%) 0%,
-    hsl(43, 100%, 55%) 50%,
-    hsl(43, 95%, 40%) 100%
+    hsl(25, 55%, 35%) 0%,
+    hsl(43, 65%, 50%) 45%,
+    hsl(43, 68%, 56%) 60%,
+    hsl(25, 55%, 35%) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 5s linear infinite;
 }
 
-.gold-border {
-  border-image: linear-gradient(
-      135deg,
-      hsl(43, 75%, 55%),
-      hsl(350, 55%, 65%),
-      hsl(43, 75%, 55%)
-    )
-    1;
+/* Главная кнопка — цвет земли */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    hsl(20, 50%, 28%) 0%,
+    hsl(20, 48%, 38%) 100%
+  );
+  color: hsl(45, 30%, 97%);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    hsl(20, 52%, 22%) 0%,
+    hsl(20, 50%, 32%) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px hsla(20, 50%, 28%, 0.38);
+}
+
+/* Ягодная кнопка */
+.btn-berry {
+  background: linear-gradient(
+    135deg,
+    hsl(355, 58%, 40%) 0%,
+    hsl(355, 58%, 48%) 100%
+  );
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-berry:hover {
+  background: linear-gradient(
+    135deg,
+    hsl(355, 62%, 34%) 0%,
+    hsl(355, 60%, 43%) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px hsla(355, 60%, 42%, 0.35);
 }
 
 .card-hover {
   transition: all 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px hsla(22, 60%, 42%, 0.15);
-}
-
-.btn-primary {
-  background: linear-gradient(
-    135deg,
-    hsl(350, 80%, 45%) 0%,
-    hsl(350, 85%, 55%) 100%
-  );
-  color: white;
-  transition: all 0.3s ease;
-}
-.btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    hsl(350, 85%, 40%) 0%,
-    hsl(350, 85%, 50%) 100%
-  );
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px hsla(350, 80%, 48%, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px hsla(20, 35%, 22%, 0.11);
 }
 
 .divider-ornament {
@@ -253,19 +292,19 @@
   background: linear-gradient(
     to right,
     transparent,
-    hsl(43, 75%, 65%),
+    hsl(43, 55%, 60%),
     transparent
   );
 }
 
-/* Scrollbar */
+/* Скроллбар */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--cream));
+  background: hsl(var(--birch));
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--gold));
+  background: hsl(var(--straw));
   border-radius: 3px;
 }
